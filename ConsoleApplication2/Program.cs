@@ -60,6 +60,8 @@ namespace ConsoleApplication2
             }
             generate_field();
             generate_Bot_field();
+            Console.Write("Куда стрелять? ");
+            Console.ReadLine(); // Coming soon
         }
         
         static void generate_field()
