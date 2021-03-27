@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ConsoleApplication2/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -21,6 +24,7 @@
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pOEqTsSleACZa5i5mBaQTxWKx6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615045929767</updated>
       <workItem from="1615045935817" duration="2239000" />
-      <workItem from="1616837526078" duration="15194000" />
+      <workItem from="1616837526078" duration="15646000" />
     </task>
     <servers />
   </component>
@@ -75,6 +79,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

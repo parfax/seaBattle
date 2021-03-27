@@ -87,7 +87,7 @@ namespace ConsoleApplication2
         {
             for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(2 * i + 3, 14);
+                Console.SetCursorPosition(2 * i + 3, 26);
                 Console.Write(alphabet[i]);
             }
             for (int i = 0; i < 10; i++)
