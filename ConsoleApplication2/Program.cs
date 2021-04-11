@@ -7,104 +7,232 @@ namespace ConsoleApplication2
     {
         // [* CONFIGURATION *]
         private static int width = 10, height = 10; // Игровое поле
-        static int[,]field = new int[height, width];
-        static int[,]botField = new int[height, width];
-        
+        static char[,] field = new char[height, width];
+        static char[,] botField = new char[height, width];
+
         private static string[] alphabet = {"а", "б", "в", "г", "д", "е", "ж", "з", "и", "к"}; // Нумерация и буквы
         private static string[] numeration = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        
+
         static int shipCount = 0; // Кол-во кораблей (4й = макс 1, 3й = макс 2, 2й = макс 3, 1 = макс 4)
 
+        static char symbol;
+        public static int Step = new int();
+        static int[] Letter = new int[11];
+        static int[] Index = new int[11];
+
         // MENU
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             Console.Title = "Морской бой | Menu";
-            
+
             Console.WriteLine("===============MENU===============\n" +
-                " Нажмите Enter чтобы Начать Игру\n" +
-                " Нажмите Esc чтобы Выйти из игры\n==================================\nВаш выбор:");
-            
+                              " Нажмите Enter чтобы Начать Игру\n" +
+                              " Нажмите Esc чтобы Выйти из игры\n==================================\nВаш выбор:");
+
             ConsoleKeyInfo keyPressed;
             keyPressed = Console.ReadKey();
-            
+
             switch (keyPressed.Key)
-                           {
-                               case ConsoleKey.Enter:
-                                   GO();
-                                   break;
-               
-                               case ConsoleKey.Escape:
-                                   Console.WriteLine(" Выходим из игры..."); 
-                                   System.Threading.Thread.Sleep(500);
-                                   break;
+            {
+                case ConsoleKey.Enter:
+                    GO();
+                    break;
+
+                case ConsoleKey.Escape:
+                    Console.WriteLine(" Выходим из игры...");
+                    Thread.Sleep(500);
+                    break;
             }
         }
+
         static void GO()
         {
             Console.Title = "Морской бой";
             Console.CursorVisible = false;
             
-            SpawnFour();
-            while (shipCount<1)
-            {
-                SpawnThree();
-            }
-            shipCount = 0;
-            while (shipCount<3)
-            {
-                SpawnTwo();
-            }
-            shipCount = 0;
-            while (shipCount<4)
-            {
-                SpawnOne();
-            }
-            generate_field();
+            Console.Clear();
+            
+            generate_field();draw();
             generate_Bot_field();
-            Console.Write("Куда стрелять? ");
-            Console.ReadLine(); // Coming soon
+            drawBot();
+            
+            //
+            //
+            Console.Write("Куда стрелять? "); // Coming soon
+            Boolean letter = true;
+            while (letter)
+            {
+                Console.Write("Ваш выстрел: ");
+                switch (Console.Read())
+                {
+                    case 'а':
+                        Letter[Step] = 0;
+                        letter = false;
+                        break;
+                    case 'б':
+                        Letter[Step] = 1;
+                        letter = false;
+                        break;
+                    case 'в':
+                        Letter[Step] = 2;
+                        letter = false;
+                        break;
+                    case 'г':
+                        Letter[Step] = 3;
+                        letter = false;
+                        break;
+                    case 'д':
+                        Letter[Step] = 4;
+                        letter = false;
+                        break;
+                    case 'е':
+                        Letter[Step] = 5;
+                        letter = false;
+                        break;
+                    case 'ж':
+                        Letter[Step] = 6;
+                        letter = false;
+                        break;
+                    case 'з':
+                        Letter[Step] = 7;
+                        letter = false;
+                        break;
+                    case 'и':
+                        Letter[Step] = 8;
+                        letter = false;
+                        break;
+                    case 'к':
+                        Letter[Step] = 9;
+                        letter = false;
+                        break;
+                }
+            }
+            Index[Step] = int.Parse(Console.ReadLine()) - 1;
+            Hit(Letter[Step], Index[Step]);
+
         }
-        
+        public static bool Hit(int x, int y)
+        {
+            if (botField[x, y] == '/')
+            {
+                Console.SetCursorPosition(x+6, y+14);
+                Console.Write('*');
+                Console.SetCursorPosition(30, 10);
+                Console.Write("Промах!   ");
+                return false;
+            }
+            if (botField[x, y] =='\u25A0')
+            {
+                Console.SetCursorPosition(x+6, y+14);
+                Console.Write('X');
+                Console.SetCursorPosition(30, 11);
+                Console.Write("Попадание!");
+                return true;
+            }
+            Console.SetCursorPosition(30, 0);
+            Console.Write("Нельзя стрелять в эту клетку");
+            Console.SetCursorPosition(30, 4);
+            Console.WriteLine();
+            Step--;
+            return true;
+        }
         static void generate_field()
         {
-            Console.Clear();
             for (int i = 0; i < 10; i++)
             {
                 Console.SetCursorPosition(2 * i + 3, 0);
                 Console.Write(alphabet[i]);
             }
+
             for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(0, i+1);
+                Console.SetCursorPosition(0, i + 1);
                 Console.Write(numeration[i]);
-                Console.SetCursorPosition(2, i+1);
-                Console.Write("| ");
+                Console.SetCursorPosition(2, i + 1);
+                Console.Write("|");
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.SetCursorPosition(2 * j + 3, i+1);
-                    Part(field[i, j]);
+                    Console.SetCursorPosition(2 * j + 3, i + 1);
+                    Random rand = new Random();
+            
+                    for (int x = 0; x < height; x++)
+                    {            
+                        for (int y = 0; y < width; y++)
+                        {
+                            if (rand.Next(1, 100) < 20)
+                                symbol = '\u25A0';
+                            else
+                                symbol = '/';
+
+                                field[x, y]=symbol;
+                            
+                        }
+                    }
                 }
             }
         }
+        static void draw()
+        {
+            for (int i = 0; i < height; i++)
+            {
+                Console.SetCursorPosition(3, i + 1);
+                for (int j = 0; j < width; j++)
+                {
+                    Console.SetCursorPosition(2 * j + 3, i + 1);
+                    symbol = field[i, j];
+                    Console.Write(symbol);
+                }
+                Console.WriteLine();
+            }
+        }
+        static void drawBot()
+        {
+            for (int i = 0; i < height; i++)
+            {
+                Console.SetCursorPosition(3, i + 13);
+                for (int j = 0; j < width; j++)
+                {
+                    Console.SetCursorPosition(2 * j + 3, i + 14);
+                    Console.Write('/');
+                }
+            }
+        }
+
         static void generate_Bot_field()
         {
             for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(2 * i + 3, 26);
+                Console.SetCursorPosition(2 * i + 3, 13);
                 Console.Write(alphabet[i]);
             }
+        
             for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(0, i+16);
+                Console.SetCursorPosition(0, i + 14);
                 Console.Write(numeration[i]);
-                Console.SetCursorPosition(2, i+16);
-                Console.Write("| ");
+                Console.SetCursorPosition(2, i + 14);
+                Console.Write("|");
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.SetCursorPosition(2 * j + 3, i+16);
-                    Part(botField[i, j]);
+                    Console.SetCursorPosition(2 * j + 3, i + 1);
+                    Random rand = new Random();
+            
+                    for (int x = 0; x < height; x++)
+                    {            
+                        for (int y = 0; y < width; y++)
+                        {
+                            if (rand.Next(1, 100) < 20)
+                                symbol = '\u25A0';
+                            else
+                                symbol = '/';
+
+                            botField[x, y]=symbol;
+                        }
+                    }
                 }
             }
         }
+        
         public static void Part(int a)
         {
             switch (a)
@@ -122,194 +250,6 @@ namespace ConsoleApplication2
                     Console.Write('•');
                     break;
             }
-        }
-        private static void SpawnFour()
-        {
-            Random random = new Random();
-            int x = random.Next(10);
-            int y = random.Next(10);
-            if (x > 5)
-            {
-                y = random.Next(5);
-                for (int i = y; i < y + 4; i++)
-                    field[i, x] = 1;
-                return;
-            }
-            if (y > 5)
-            {
-                x = random.Next(5);
-                for (int j = x; j < x + 4; j++)
-                    field[y, j] = 1;
-                return;
-            }
-            int k = random.Next(1);
-            if (k == 0)
-            {
-                for (int i = y; i < y + 4; i++)
-                    field[i, x] = 1;
-            }
-            else
-            {
-                for (int j = x; j < x + 4; j++)
-                    field[y, j] = 1;
-            }
-        }
-
-        private static void SpawnThree()
-        {
-            var random = new Random();
-            var x = random.Next(10);
-            var y = random.Next(10);
-            if (y > 6)
-            {
-                x = random.Next(7);
-                for (int i = y - 1; i < y + 2; i++)
-                {
-                    if (i < 0)
-                        i++;
-
-                    if (i > 9)
-                        break;
-
-                    for (int j = x - 1; j < x + 4; j++)
-                    {
-                        if (j < 0)
-                            j++;
-
-                        if (j > 9)
-                            break;
-
-                        if (field[i, j] != 0)
-                            return;
-                    }
-                }
-
-                for (int j = x; j < x + 3; j++)
-                    field[y, j] = 1;
-
-                shipCount++;
-            }
-
-            if (x > 6)
-            {
-                y = random.Next(7);
-                for (int i = y - 1; i < y + 4; i++)
-                {
-                    if (i < 0)
-                        i++;
-
-                    if (i > 9)
-                        break;
-
-                    for (int j = x - 1; j < x + 2; j++)
-                    {
-                        if (j < 0)
-                            j++;
-
-                        if (j > 9)
-                            break;
-
-                        if (field[i, j] != 0)
-                            return;
-                    }
-                }
-
-                for (int i = y; i < y + 3; i++)
-                    field[i, x] = 1;
-
-                shipCount++;
-                return;
-            }
-        }
-        private static void SpawnTwo()
-        {
-            var random = new Random();
-            var x = random.Next(10);
-            var y = random.Next(10);
-            if (y > 7)
-            {
-                x = random.Next(8);
-                for (int i = y - 1; i < y + 2; i++)
-                {
-                    if (i < 0)
-                        i++;
-
-                    if (i > 9)
-                        break;
-
-                    for (int j = x - 1; j < x + 3; j++)
-                    {
-                        if (j < 0)
-                            j++;
-
-                        if (j > 9)
-                            break;
-
-                        if (field[i, j] != 0)
-                            return;
-                    }
-                }
-
-                for (int j = x; j < x + 2; j++)
-                    field[y, j] = 1;
-
-                shipCount++;
-            }
-
-            if (x > 7)
-            {
-                y = random.Next(8);
-                for (int i = y - 1; i < y + 4; i++)
-                {
-                    if (i < 0)
-                        i++;
-
-                    if (i > 9)
-                        break;
-
-                    for (int j = x - 1; j < x + 2; j++)
-                    {
-                        if (j < 0)
-                            j++;
-
-                        if (j > 9)
-                            break;
-
-                        if (field[i, j] != 0)
-                            return;
-                    }
-                }
-
-                for (int i = y; i < y + 3; i++)
-                    field[i, x] = 1;
-
-                shipCount++;
-            }
-        }
-
-        private static void SpawnOne()
-        {
-            Random random = new Random();
-            int x = random.Next(10);
-            int y = random.Next(10);
-            for (int i = y - 1; i < y + 2; i++)
-            {
-                if (i < 0)
-                    i++;
-                if (i > 9)
-                    break;
-                for (int j = x - 1; j < x + 2; j++)
-                {
-                    if (j < 0)
-                        j++;
-                    if (j > 9)
-                        break;
-                    if (field[i, j] != 0)
-                        return;
-                }
-            }
-            field[y, x] = 1;
-            shipCount++;
         }
     }
 }

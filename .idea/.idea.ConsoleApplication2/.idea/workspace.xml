@@ -4,7 +4,18 @@
     <projectFile>ConsoleApplication2/ConsoleApplication2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="" />
+    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/ConsoleApplication2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/ConsoleApplication2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/torpedoBoat.cs" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +81,9 @@
       <option name="presentableId" value="Default" />
       <updated>1615045929767</updated>
       <workItem from="1615045935817" duration="2239000" />
-      <workItem from="1616837526078" duration="15646000" />
+      <workItem from="1616837526078" duration="18653000" />
+      <workItem from="1617212260858" duration="5233000" />
+      <workItem from="1617815381186" duration="6933000" />
     </task>
     <servers />
   </component>
@@ -89,8 +102,41 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ConsoleApplication2/Program.cs</url>
+          <line>60</line>
+          <properties documentPath="C:\Users\AdminPC\RiderProjects\ConsoleApplication2\ConsoleApplication2\Program.cs" initialLine="58" containingFunctionPresentation="method 'GO'">
+            <startOffsets>
+              <option value="1954" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1969" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ConsoleApplication2/Program.cs</url>
+          <line>68</line>
+          <properties documentPath="C:\Users\AdminPC\RiderProjects\ConsoleApplication2\ConsoleApplication2\Program.cs" initialLine="70" containingFunctionPresentation="method 'GO'">
+            <startOffsets>
+              <option value="2206" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2223" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
