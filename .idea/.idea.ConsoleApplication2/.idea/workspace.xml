@@ -4,7 +4,14 @@
     <projectFile>ConsoleApplication2/ConsoleApplication2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="small Update" />
+    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="small Update">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +81,7 @@
       <workItem from="1617212260858" duration="5233000" />
       <workItem from="1617815381186" duration="6933000" />
       <workItem from="1618139296526" duration="65000" />
+      <workItem from="1618421359367" duration="13680000" />
     </task>
     <task id="LOCAL-00001" summary="small Update">
       <created>1618139333145</created>
@@ -106,37 +114,5 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="small Update" />
     <option name="LAST_COMMIT_MESSAGE" value="small Update" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ConsoleApplication2/Program.cs</url>
-          <line>60</line>
-          <properties documentPath="C:\Users\AdminPC\RiderProjects\ConsoleApplication2\ConsoleApplication2\Program.cs" initialLine="58" containingFunctionPresentation="method 'GO'">
-            <startOffsets>
-              <option value="1954" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1969" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ConsoleApplication2/Program.cs</url>
-          <line>68</line>
-          <properties documentPath="C:\Users\AdminPC\RiderProjects\ConsoleApplication2\ConsoleApplication2\Program.cs" initialLine="70" containingFunctionPresentation="method 'GO'">
-            <startOffsets>
-              <option value="2206" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2223" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
