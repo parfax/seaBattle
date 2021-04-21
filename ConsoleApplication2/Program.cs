@@ -8,6 +8,7 @@ namespace ConsoleApplication2
         // [* CONFIGURATION *]
         private static readonly int width = 10; // Игровое поле
         private static readonly int height = 10; // Игровое поле
+        public static int letter, index, shipCount=0,botShipCount=0;
         private static readonly char[,] field = new char[height, width];
         private static readonly char[,] botField = new char[height, width];
         private static readonly char[,] showBotField = new char[height, width];
@@ -17,11 +18,7 @@ namespace ConsoleApplication2
 
         private static readonly string[] numeration = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         private static string message;
-
-        private static char symbol;
-        public static int Step = new int(); // !!! Порешай чтобы их не было !!!
-        private static readonly int[] Letter = new int[10]; // !!! Порешай чтобы их не было !!!
-        private static readonly int[] Index = new int[10]; // !!! Порешай чтобы их не было !!!
+        static Random rand = new Random();
 
         // MENU
         public static void Main(string[] args)
@@ -56,8 +53,8 @@ namespace ConsoleApplication2
             for (var i = 0; i < height; i++)
             for (var j = 0; j < width; j++)
                 showBotField[i, j] = '/';
-            generate_field(field);
-            generate_field(botField);
+            generate_field(field, ref shipCount); draw(field,0);
+            generate_field(botField, ref botShipCount); draw(botField,13);
             visualizeGame();
 
             while (true)
@@ -70,43 +67,43 @@ namespace ConsoleApplication2
                     switch (Console.Read())
                     {
                         case 'а':
-                            Letter[Step] = 0;
+                            letter = 0;
                             isValid = false;
                             break;
                         case 'б':
-                            Letter[Step] = 1;
+                            letter = 1;
                             isValid = false;
                             break;
                         case 'в':
-                            Letter[Step] = 2;
+                            letter = 2;
                             isValid = false;
                             break;
                         case 'г':
-                            Letter[Step] = 3;
+                            letter = 3;
                             isValid = false;
                             break;
                         case 'д':
-                            Letter[Step] = 4;
+                            letter = 4;
                             isValid = false;
                             break;
                         case 'е':
-                            Letter[Step] = 5;
+                            letter = 5;
                             isValid = false;
                             break;
                         case 'ж':
-                            Letter[Step] = 6;
+                            letter = 6;
                             isValid = false;
                             break;
                         case 'з':
-                            Letter[Step] = 7;
+                            letter = 7;
                             isValid = false;
                             break;
                         case 'и':
-                            Letter[Step] = 8;
+                            letter = 8;
                             isValid = false;
                             break;
                         case 'к':
-                            Letter[Step] = 9;
+                            letter = 9;
                             isValid = false;
                             break;
                         default:
@@ -116,8 +113,8 @@ namespace ConsoleApplication2
                     }
                 }
 
-                Index[Step] = int.Parse(Console.ReadLine()) - 1;
-                Hit(Index[Step], Letter[Step]);
+                index = int.Parse(Console.ReadLine()) - 1;
+                Hit(index, letter);
                 visualizeGame();
             }
         }
@@ -127,8 +124,12 @@ namespace ConsoleApplication2
             Console.Clear();
             draw(field, 0);
             draw(showBotField, 13);
-            Console.SetCursorPosition(30, 8);
+            Console.SetCursorPosition(30, 7);
             Console.Write("[ИНФОРМАЦИЯ]");
+            Console.SetCursorPosition(30, 8);
+            Console.Write($"Кол-во ваших кораблей: {shipCount}");
+            Console.SetCursorPosition(30, 9);
+            Console.Write($"Кол-во кораблей бота: {botShipCount}");
             Console.SetCursorPosition(30, 10);
             Console.Write(message);
         }
@@ -136,37 +137,57 @@ namespace ConsoleApplication2
         public static void Hit(int x, int y)
         {
             if (showBotField[x, y] == '*' || showBotField[x, y] == 'X')
-            {
                 message = "Нельзя стрелять в эту клетку";
-            }
+                
             else if (botField[x, y] == '/')
             {
                 showBotField[x, y] = '*';
                 message = "Промах!";
+                BotHit(rand.Next(1, 10), rand.Next(1, 10));
             }
             else if (botField[x, y] == '\u25A0')
             {
                 showBotField[x, y] = 'X';
                 message = "Попадание!";
+                BotHit(rand.Next(1, 10), rand.Next(1, 10));
+                botShipCount--;
+            }
+        }
+        public static void BotHit(int x, int y)
+        {
+            if (field[x, y] == '*' || field[x, y] == 'X')
+                BotHit(rand.Next(1, 10), rand.Next(1, 10));
+            
+            else if (field[x, y] == '/')
+                field[x, y] = '*';
+            
+            else if (field[x, y] == '\u25A0')
+            {
+                Console.WriteLine($"dsadasd");
+                field[x, y] = 'X';
+                shipCount--;
             }
         }
 
-        private static void generate_field(char[,] field)
+        public static void generate_field(char[,] field, ref int ships)
         {
-            var rand = new Random();
-
+            char symbol;
+            ships = 0;
             for (var x = 0; x < height; x++)
             for (var y = 0; y < width; y++)
             {
                 if (rand.Next(1, 100) < 20)
+                {
                     symbol = '\u25A0';
+                    ships++;
+                }
                 else
                     symbol = '/';
                 field[x, y] = symbol;
             }
         }
 
-        private static void draw(char[,] field, int crusr)
+        public static void draw(char[,] field, int crusr)
         {
             for (var i = 0; i < 10; i++)
             {
