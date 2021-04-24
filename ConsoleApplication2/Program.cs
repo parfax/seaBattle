@@ -1,5 +1,8 @@
 ﻿using System;
-using System.Threading;
+using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.Xml;
+using System.IO;
 
 namespace ConsoleApplication2
 {
@@ -19,34 +22,81 @@ namespace ConsoleApplication2
         private static readonly string[] numeration = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         private static string message;
         static Random rand = new Random();
+        public static List<User> users = new List<User>();
+        private static FileStream pathh;
+        private static XmlSerializer serializer;
 
         // MENU
         public static void Main(string[] args)
         {
             Console.Title = "Морской бой | Menu";
-
-            Console.WriteLine("===============MENU===============\n" +
-                              " Нажмите Enter чтобы Начать Игру\n" +
-                              " Нажмите Esc чтобы Выйти из игры\n" +
-                              "==================================\n" +
-                              "Ваш выбор:");
-
-            ConsoleKeyInfo keyPressed;
-            keyPressed = Console.ReadKey();
-
-            switch (keyPressed.Key)
+            
+            Console.WriteLine("Login: ");
+            string login = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            string pass = Console.ReadLine();
+            
+            
+            
+            
+            string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)+ "\\Users.xml";
+            if (!File.Exists(path))
             {
-                case ConsoleKey.Enter:
-                    GO();
-                    break;
-
-                case ConsoleKey.Escape:
-                    Console.WriteLine(" Выходим из игры...");
-                    Thread.Sleep(500);
-                    break;
+                User user = new User(login, pass);
+                users.Add(user);
+                serializer = new XmlSerializer(typeof(List<User>));
+                pathh = new FileStream("Users.xml", FileMode.Create);
+                serializer.Serialize(pathh, users);
             }
+            else
+            {
+                
+                pathh = new FileStream("Users.xml", FileMode.Open);
+                
+                serializer = new XmlSerializer(typeof(List<User>));
+                users=serializer.Deserialize(pathh) as List<User>;
+                
+                User user = new User(login, pass);
+                users.Add(user);
+                serializer.Serialize(pathh, users);
+            
+                pathh.Close();
+            }
+            
+            // Console.WriteLine("===============MENU===============\n" +
+            //                   " Нажмите Enter чтобы Начать Игру\n" +
+            //                   " Нажмите Esc чтобы Выйти из игры\n" +
+            //                   "==================================\n" +
+            //                   "Ваш выбор:");
+            //
+            // ConsoleKeyInfo keyPressed;
+            // keyPressed = Console.ReadKey();
+            //
+            // switch (keyPressed.Key)
+            // {
+            //     case ConsoleKey.Enter:
+            //         GO();
+            //         break;
+            //
+            //     case ConsoleKey.Escape:
+            //         Console.WriteLine(" Выходим из игры...");
+            //         Thread.Sleep(500);
+            //         break;
+            // }
         }
-
+        
+        public static bool CheckProfileOnExistance(string login, string password)
+        {
+            foreach (User user in users)
+            {
+                if (user.login == login && user.pass == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
         private static void GO()
         {
             Console.Title = "Морской бой";

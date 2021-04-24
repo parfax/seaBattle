@@ -8,10 +8,12 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConsoleApplication2.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="Users.cs" t="Include" />
       </e>
       <e p="ConsoleApplication2.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
