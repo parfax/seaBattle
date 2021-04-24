@@ -47,20 +47,21 @@ namespace ConsoleApplication2
                 serializer = new XmlSerializer(typeof(List<User>));
                 pathh = new FileStream("Users.xml", FileMode.Create);
                 serializer.Serialize(pathh, users);
+                pathh.Close();
             }
             else
             {
-                
-                pathh = new FileStream("Users.xml", FileMode.Open);
-                
-                serializer = new XmlSerializer(typeof(List<User>));
-                users=serializer.Deserialize(pathh) as List<User>;
-                
-                User user = new User(login, pass);
-                users.Add(user);
-                serializer.Serialize(pathh, users);
-            
-                pathh.Close();
+                if(!CheckProfileOnExistance(login, pass))
+                {
+                    pathh = new FileStream("Users.xml", FileMode.Open);
+                    serializer = new XmlSerializer(typeof(List<User>));
+                    users = serializer.Deserialize(pathh) as List<User>;
+                    User user = new User(login, pass);
+                    users.Add(user);
+                    serializer.Serialize(pathh, users);
+                    pathh.Close();
+                }else
+                    Console.WriteLine($"Hello, {login}");
             }
             
             // Console.WriteLine("===============MENU===============\n" +
@@ -87,6 +88,9 @@ namespace ConsoleApplication2
         
         public static bool CheckProfileOnExistance(string login, string password)
         {
+            pathh = new FileStream("Users.xml", FileMode.Open);
+            serializer = new XmlSerializer(typeof(List<User>));
+            users = serializer.Deserialize(pathh) as List<User>;
             foreach (User user in users)
             {
                 if (user.login == login && user.pass == password)

@@ -4,16 +4,11 @@
     <projectFile>ConsoleApplication2/ConsoleApplication2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="nice update">
-      <change afterPath="$PROJECT_DIR$/ConsoleApplication2/Users.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="f90c550b-c476-4326-90dd-18dddcb279d7" name="Default Changelist" comment="wwwww">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApplication2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/ConsoleApplication2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/ConsoleApplication2.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/bin/Debug/ConsoleApplication2.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication2/obj/Debug/ConsoleApplication2.pdb" afterDir="false" />
     </list>
@@ -95,7 +90,7 @@
       <workItem from="1618671762418" duration="8449000" />
       <workItem from="1619025006754" duration="874000" />
       <workItem from="1619275174097" duration="9581000" />
-      <workItem from="1619288070624" duration="9707000" />
+      <workItem from="1619288070624" duration="10814000" />
     </task>
     <task id="LOCAL-00001" summary="small Update">
       <created>1618139333145</created>
@@ -118,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619025040881</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wwwww">
+      <created>1619299852427</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619299852427</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +145,7 @@
     <MESSAGE value="small Update" />
     <MESSAGE value="save" />
     <MESSAGE value="nice update" />
-    <option name="LAST_COMMIT_MESSAGE" value="nice update" />
+    <MESSAGE value="wwwww" />
+    <option name="LAST_COMMIT_MESSAGE" value="wwwww" />
   </component>
 </project>
